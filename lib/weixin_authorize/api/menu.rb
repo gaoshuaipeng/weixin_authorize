@@ -38,7 +38,7 @@ module WeixinAuthorize
       def delconditional(menu)
         menu = JSON.load(menu) if menu.is_a?(String)
         delconditional_menu_url = "#{menu_base_url}/delconditional"
-        http_get(delconditional_menu_url, menu)
+        http_post(delconditional_menu_url, menu)
       end
 
       private
