@@ -25,6 +25,14 @@ module WeixinAuthorize
         http_post(create_menu_url, menu)
       end
 
+      # 创建个性化菜单
+      # https://api.weixin.qq.com/cgi-bin/menu/addconditional?access_token=ACCESS_TOKEN
+      def addconditional_menu(menu)
+        menu = JSON.load(menu) if menu.is_a?(String)
+        addconditional_menu_url = "#{menu_base_url}/addconditional"
+        http_post(addconditional_menu_url, menu)
+      end
+
       private
 
         def menu_base_url
