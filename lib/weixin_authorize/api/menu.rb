@@ -33,6 +33,14 @@ module WeixinAuthorize
         http_post(addconditional_menu_url, menu)
       end
 
+      # 删除个性化菜单
+      # https://api.weixin.qq.com/cgi-bin/menu/delconditional?access_token=ACCESS_TOKEN
+      def delconditional(menu)
+        menu = JSON.load(menu) if menu.is_a?(String)
+        delconditional_menu_url = "#{menu_base_url}/delconditional"
+        http_get(delconditional_menu_url, menu)
+      end
+
       private
 
         def menu_base_url
